@@ -16,8 +16,6 @@ ENV XCLBIN_PROGRAM binary_container_1.xclbin
 # Metadata for App
 ADD help.html /etc/NAE/help.html
 ADD AppDef.json /etc/NAE/AppDef.json
-# DRMLib Install
-ADD drmlib_install.sh
 RUN curl --fail -X POST -d @/etc/NAE/AppDef.json https://api.jarvice.com/jarvice/validate
 # FPGA platform 
 # Replace <tags> with docker --build-arg (s)
