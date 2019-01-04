@@ -30,6 +30,12 @@ RUN make clean all -C /opt/accelize/drm_demo/
 # Create alias for autorun
 RUN ln -s /opt/accelize/drm_demo/autorun.sh /usr/local/sbin/drmdemo
 
+# Create empty credential files
+ADD empty_cred.json /opt/accelize/drm_demo/conf/floating/cred.json
+ADD empty_cred.json /opt/accelize/drm_demo/conf/metered/cred.json
+ADD empty_cred.json /opt/accelize/drm_demo/conf/nodelocked/cred.json
+ADD empty_cred.json /opt/accelize/drm_demo/conf/nodelocked_prov/cred.json
+
 # Readme.md
 ADD README.md /opt/accelize/README.md
 

@@ -31,5 +31,5 @@
 *.out
 *.app
 
-# Credentials folder
-drm_demo/conf
+# Credentials files
+cred.json
