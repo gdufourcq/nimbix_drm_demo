@@ -25,10 +25,10 @@ RUN /opt/accelize/drmlib_install.sh
 # Demo Copy and Compile
 ADD drm_demo /opt/accelize/drm_demo/
 RUN chmod -R 777 /opt/accelize
-RUN make clean all /opt/accelize/drm_demo/
+RUN make clean all -C /opt/accelize/drm_demo/
 
 # Create alias for autorun
-ln -s /opt/accelize/drm_demo/autorun.sh /usr/local/sbin/drmdemo
+RUN ln -s /opt/accelize/drm_demo/autorun.sh /usr/local/sbin/drmdemo
 
 # Readme.md
 ADD README.md /opt/accelize/README.md

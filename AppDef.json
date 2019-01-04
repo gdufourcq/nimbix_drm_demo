@@ -36,7 +36,8 @@
             "path": "/sbin/init",
             "interactive": true,
             "name": "Launch DRM Demo",
-            "description": "Launch the DRM Demo"
+            "description": "Launch the DRM Demo",
+            "parameters": {
             }
         }
     },
