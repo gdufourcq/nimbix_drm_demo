@@ -8,10 +8,6 @@ ENV JARVICE_MACHINE nx5u
 ENV XCLBIN_PROGRAM drm_demo/bitstreams/u200/binary_container_1.xclbin
 # FPGA bitstream to remove from container (*.xclbin format)
 #ENV XCLBIN_REMOVE drm_demo/bitstreams/u200/binary_container_1.xclbin
-# FPGA platform 
-# Replace <tags> with docker --build-arg (s)
-RUN sed -i "s/<jarvice-machine>/$JARVICE_MACHINE/g" /etc/NAE/AppDef.json
-
 
 
 # Metadata for App

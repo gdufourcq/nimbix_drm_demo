@@ -7,7 +7,7 @@
         "FPGA Distribution platform"
     ],
     "machines": [
-        "<jarvice-machine>"
+        "nx5u"
     ],
     "vault-types": [
         "FILE",
