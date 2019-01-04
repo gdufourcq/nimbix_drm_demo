@@ -16,33 +16,20 @@ ENV XCLBIN_PROGRAM binary_container_1.xclbin
 # Metadata for App
 ADD help.html /etc/NAE/help.html
 ADD AppDef.json /etc/NAE/AppDef.json
-RUN curl --fail -X POST -d @/etc/NAE/AppDef.json https://api.jarvice.com/jarvice/validate
-
 # DRMLib Install
 ADD drmlib_install.sh
-
-# Add DRM Demo App data
-ADD drm_demo
-
-# Readme.md
-ADD README.md
-
-
+RUN curl --fail -X POST -d @/etc/NAE/AppDef.json https://api.jarvice.com/jarvice/validate
 # FPGA platform 
 # Replace <tags> with docker --build-arg (s)
 RUN sed -i "s/<jarvice-machine>/$JARVICE_MACHINE/g" /etc/NAE/AppDef.json
-
 # Test FPGA bitstream
 ADD xclbin/$DSA/$XCLBIN_PROGRAM /opt/example/
 #RUN chmod 555 /opt/example/test.xclbin
-
 # Add additional FPGA bitstream to demo removal of unused kernels
 #ADD xclbin/$DSA/$XCLBIN_REMOVE /opt/example/remove1.xclbin
 #ADD xclbin/$DSA/$XCLBIN_REMOVE /opt/example/remove2.xclbin
-
 # Test host application
-#ADD hello_world_u200.exe /opt/example/
-
+ADD hello_world_u200.exe /opt/example/
 # Test script
 #ADD run-test.sh /opt/example/run-test.sh
 #RUN chmod 777 /opt/example/run-test.sh
