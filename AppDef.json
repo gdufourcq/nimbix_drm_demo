@@ -18,14 +18,14 @@
     "variable": {
         "XCLBIN_BITSTREAM_PROGRAM": {
             "name": "Xilinx FPGA binary",
-            "description": "Select user xclbin",
+            "description": "/opt/accelize/drm_demo/bitstreams/u200/binary_container_1.xclbin",
             "userowned": false,
             "inherit": false,
             "required": false 
         },
         "XCLBIN_BITSTREAM_PROTECT": {
             "name": "Xilinx FPGA binary to delete",
-            "description": "xclbin to remove",
+            "description": "/opt/accelize/drm_demo/bitstreams/u200/binary_container_1.xclbin",
             "userowned": false,
             "inherit": false,
             "required": false
@@ -35,18 +35,8 @@
         "drm_demo_u200": {
             "path": "/sbin/init",
             "interactive": true,
-            "name": "Launch DRM Demo w/ xclbin Protection",
-            "description": "Launch the DRm Demo w/ bitstream protection.",
-            "parameters": {
-                "XCLBIN_BITSTREAM_PROGRAM": {
-                    "name": "Xilinx FPGA binary",
-                    "description": "Select user xclbin",
-                    "type": "CONST",
-                    "required": true,
-                    "positional": false,
-                    "variable": true,
-                    "value": "drm_demo/bitstreams/u200/binary_container_1.xclbin"
-                }
+            "name": "Launch DRM Demo",
+            "description": "Launch the DRM Demo"
             }
         }
     },

@@ -14,7 +14,7 @@ ENV XCLBIN_PROGRAM drm_demo/bitstreams/u200/binary_container_1.xclbin
 ADD AppDef.json /etc/NAE/AppDef.json
 RUN curl --fail -X POST -d @/etc/NAE/AppDef.json https://api.jarvice.com/jarvice/validate
 
-# App install Path
+# Create Accelize Workspace
 RUN mkdir -p /opt/accelize/
 
 # DRMLib Install
@@ -22,11 +22,16 @@ ADD drmlib_install.sh /opt/accelize/drmlib_install.sh
 RUN chmod 777 /opt/accelize/drmlib_install.sh
 RUN /opt/accelize/drmlib_install.sh
 
-# Add DRM Demo App data
+# Demo Copy and Compile
 ADD drm_demo /opt/accelize/drm_demo/
+RUN chmod -R 777 /opt/accelize
+RUN make clean all /opt/accelize/drm_demo/
+
+# Create alias for autorun
+ln -s /opt/accelize/drm_demo/autorun.sh /usr/local/sbin/drmdemo
 
 # Readme.md
-ADD README.md /opt/accelize/
+ADD README.md /opt/accelize/README.md
 
 # Expose port 22 for local JARVICE emulation in docker
 EXPOSE 22
